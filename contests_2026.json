@@ -1,0 +1,331 @@
+{
+  "GA": {
+    "stateCode": "GA",
+    "stateName": "Georgia",
+    "incumbent": "Jon Ossoff",
+    "baselineParty": "Democrat",
+    "rating": "Tossup",
+    "competitiveness": "High Battleground",
+    "priority": 1,
+    "notes": "Top national battleground; Ossoff was elected in 2021 runoff."
+  },
+  "ME": {
+    "stateCode": "ME",
+    "stateName": "Maine",
+    "incumbent": "Susan Collins",
+    "baselineParty": "Republican",
+    "rating": "Tossup",
+    "competitiveness": "High Battleground",
+    "priority": 2,
+    "notes": "Susan Collins is the only remaining Republican Senator from New England."
+  },
+  "NC": {
+    "stateCode": "NC",
+    "stateName": "North Carolina",
+    "incumbent": "Thom Tillis",
+    "baselineParty": "Republican",
+    "rating": "Lean R",
+    "competitiveness": "Key Battleground",
+    "priority": 3,
+    "notes": "Highly competitive swing state; Tillis won tightly in 2020."
+  },
+  "MI": {
+    "stateCode": "MI",
+    "stateName": "Michigan",
+    "incumbent": "Gary Peters",
+    "baselineParty": "Democrat",
+    "rating": "Lean D",
+    "competitiveness": "Key Battleground",
+    "priority": 4,
+    "notes": "Perennial swing state; Peters won re-election by 1.7% in 2020."
+  },
+  "TX": {
+    "stateCode": "TX",
+    "stateName": "Texas",
+    "incumbent": "John Cornyn",
+    "baselineParty": "Republican",
+    "rating": "Likely R",
+    "competitiveness": "Target Race",
+    "priority": 5,
+    "notes": "Major Democratic target in rapidly diversifying Texas."
+  },
+  "IA": {
+    "stateCode": "IA",
+    "stateName": "Iowa",
+    "incumbent": "Joni Ernst",
+    "baselineParty": "Republican",
+    "rating": "Likely R",
+    "competitiveness": "Target Race",
+    "priority": 6,
+    "notes": "Ernst won by 6.6% in 2020; Midwestern battleground."
+  },
+  "NH": {
+    "stateCode": "NH",
+    "stateName": "New Hampshire",
+    "incumbent": "Jeanne Shaheen",
+    "baselineParty": "Democrat",
+    "rating": "Likely D",
+    "competitiveness": "Competitive",
+    "priority": 7,
+    "notes": "Shaheen is a popular multi-term former governor and senator."
+  },
+  "MN": {
+    "stateCode": "MN",
+    "stateName": "Minnesota",
+    "incumbent": "Tina Smith",
+    "baselineParty": "Democrat",
+    "rating": "Likely D",
+    "competitiveness": "Competitive",
+    "priority": 8,
+    "notes": "Smith won by 5.2% in 2020; key Midwestern defense."
+  },
+  "AK": {
+    "stateCode": "AK",
+    "stateName": "Alaska",
+    "incumbent": "Dan Sullivan",
+    "baselineParty": "Republican",
+    "rating": "Likely R",
+    "competitiveness": "Competitive",
+    "priority": 9,
+    "notes": "Ranked-choice voting state; Sullivan won by 12% in 2020."
+  },
+  "VA": {
+    "stateCode": "VA",
+    "stateName": "Virginia",
+    "incumbent": "Mark Warner",
+    "baselineParty": "Democrat",
+    "rating": "Likely D",
+    "competitiveness": "Competitive",
+    "priority": 10,
+    "notes": "Warner is former governor with strong bipartisan appeal."
+  },
+  "NM": {
+    "stateCode": "NM",
+    "stateName": "New Mexico",
+    "incumbent": "Ben Ray Luj\u00e1n",
+    "baselineParty": "Democrat",
+    "rating": "Likely D",
+    "competitiveness": "Competitive",
+    "priority": 11,
+    "notes": "Luj\u00e1n won open seat in 2020 by 6.1%."
+  },
+  "CO": {
+    "stateCode": "CO",
+    "stateName": "Colorado",
+    "incumbent": "John Hickenlooper",
+    "baselineParty": "Democrat",
+    "rating": "Likely D",
+    "competitiveness": "Target Race",
+    "priority": 12,
+    "notes": "Hickenlooper defeated Cory Gardner by 9.3% in 2020."
+  },
+  "MT": {
+    "stateCode": "MT",
+    "stateName": "Montana",
+    "incumbent": "Steve Daines",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 13,
+    "notes": "Daines won by 10% in 2020 over Steve Bullock."
+  },
+  "KS": {
+    "stateCode": "KS",
+    "stateName": "Kansas",
+    "incumbent": "Roger Marshall",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 14,
+    "notes": "Marshall won open seat in 2020 by 11.4%."
+  },
+  "SC": {
+    "stateCode": "SC",
+    "stateName": "South Carolina",
+    "incumbent": "Lindsey Graham",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 15,
+    "notes": "Graham won re-election by 10.3% in 2020."
+  },
+  "KY": {
+    "stateCode": "KY",
+    "stateName": "Mitch McConnell",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 16,
+    "notes": "Longest serving Senate party leader."
+  },
+  "AL": {
+    "stateCode": "AL",
+    "stateName": "Alabama",
+    "incumbent": "Tommy Tuberville",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 17,
+    "notes": "Tuberville defeated Doug Jones in 2020."
+  },
+  "AR": {
+    "stateCode": "AR",
+    "stateName": "Arkansas",
+    "incumbent": "Tom Cotton",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 18,
+    "notes": "Cotton won re-election by 33% in 2020."
+  },
+  "ID": {
+    "stateCode": "ID",
+    "stateName": "Idaho",
+    "incumbent": "Jim Risch",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 19,
+    "notes": "Safe conservative stronghold."
+  },
+  "IL": {
+    "stateCode": "IL",
+    "stateName": "Illinois",
+    "incumbent": "Dick Durbin",
+    "baselineParty": "Democrat",
+    "rating": "Solid D",
+    "competitiveness": "Safe Incumbent",
+    "priority": 20,
+    "notes": "Democratic Whip and veteran senator."
+  },
+  "LA": {
+    "stateCode": "LA",
+    "stateName": "Louisiana",
+    "incumbent": "Bill Cassidy",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 21,
+    "notes": "Jungle primary format."
+  },
+  "MA": {
+    "stateCode": "MA",
+    "stateName": "Massachusetts",
+    "incumbent": "Ed Markey",
+    "baselineParty": "Democrat",
+    "rating": "Solid D",
+    "competitiveness": "Safe Incumbent",
+    "priority": 22,
+    "notes": "Strong progressive stronghold."
+  },
+  "MS": {
+    "stateCode": "MS",
+    "stateName": "Mississippi",
+    "incumbent": "Cindy Hyde-Smith",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 23,
+    "notes": "Safe Republican seat."
+  },
+  "NE": {
+    "stateCode": "NE",
+    "stateName": "Nebraska",
+    "incumbent": "Pete Ricketts",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 24,
+    "notes": "Won 2024 special election to finish Sasse term."
+  },
+  "NJ": {
+    "stateCode": "NJ",
+    "stateName": "New Jersey",
+    "incumbent": "Cory Booker",
+    "baselineParty": "Democrat",
+    "rating": "Solid D",
+    "competitiveness": "Safe Incumbent",
+    "priority": 25,
+    "notes": "Solid Democratic stronghold."
+  },
+  "OK": {
+    "stateCode": "OK",
+    "stateName": "Oklahoma",
+    "incumbent": "Markwayne Mullin",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 26,
+    "notes": "Solid conservative seat."
+  },
+  "OR": {
+    "stateCode": "OR",
+    "stateName": "Oregon",
+    "incumbent": "Jeff Merkley",
+    "baselineParty": "Democrat",
+    "rating": "Solid D",
+    "competitiveness": "Safe Incumbent",
+    "priority": 27,
+    "notes": "Solid Democratic seat."
+  },
+  "RI": {
+    "stateCode": "RI",
+    "stateName": "Rhode Island",
+    "incumbent": "Jack Reed",
+    "baselineParty": "Democrat",
+    "rating": "Solid D",
+    "competitiveness": "Safe Incumbent",
+    "priority": 28,
+    "notes": "Armed Services leader."
+  },
+  "SD": {
+    "stateCode": "SD",
+    "stateName": "South Dakota",
+    "incumbent": "Mike Rounds",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 29,
+    "notes": "Solid Republican seat."
+  },
+  "TN": {
+    "stateCode": "TN",
+    "stateName": "Tennessee",
+    "incumbent": "Bill Hagerty",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 30,
+    "notes": "Solid Republican seat."
+  },
+  "WV": {
+    "stateCode": "WV",
+    "stateName": "West Virginia",
+    "incumbent": "Shelley Moore Capito",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 31,
+    "notes": "Capito won in 2020 by 43%."
+  },
+  "WY": {
+    "stateCode": "WY",
+    "stateName": "Wyoming",
+    "incumbent": "Cynthia Lummis",
+    "baselineParty": "Republican",
+    "rating": "Solid R",
+    "competitiveness": "Safe Incumbent",
+    "priority": 32,
+    "notes": "Solid conservative seat."
+  },
+  "DE": {
+    "stateCode": "DE",
+    "stateName": "Delaware",
+    "incumbent": "Chris Coons",
+    "baselineParty": "Democrat",
+    "rating": "Solid D",
+    "competitiveness": "Safe Incumbent",
+    "priority": 33,
+    "notes": "Solid Democratic seat."
+  }
+}

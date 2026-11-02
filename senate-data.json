@@ -1,0 +1,1008 @@
+{
+  "AL": {
+    "name": "Alabama",
+    "senators": [
+      {
+        "name": "Tommy Tuberville",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Katie Britt",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "AK": {
+    "name": "Alaska",
+    "senators": [
+      {
+        "name": "Lisa Murkowski",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Dan Sullivan",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "AZ": {
+    "name": "Arizona",
+    "senators": [
+      {
+        "name": "Mark Kelly",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Ruben Gallego",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "AR": {
+    "name": "Arkansas",
+    "senators": [
+      {
+        "name": "John Boozman",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Tom Cotton",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "CA": {
+    "name": "California",
+    "senators": [
+      {
+        "name": "Alex Padilla",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Adam Schiff",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "CO": {
+    "name": "Colorado",
+    "senators": [
+      {
+        "name": "Michael Bennet",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "John Hickenlooper",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "CT": {
+    "name": "Connecticut",
+    "senators": [
+      {
+        "name": "Richard Blumenthal",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Chris Murphy",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "DE": {
+    "name": "Delaware",
+    "senators": [
+      {
+        "name": "Chris Coons",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Lisa Blunt Rochester",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "FL": {
+    "name": "Florida",
+    "senators": [
+      {
+        "name": "Rick Scott",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Marco Rubio",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior",
+        "note": "Appointed successor serves pending special/regular election"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "GA": {
+    "name": "Georgia",
+    "senators": [
+      {
+        "name": "Jon Ossoff",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Raphael Warnock",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "HI": {
+    "name": "Hawaii",
+    "senators": [
+      {
+        "name": "Brian Schatz",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Mazie Hirono",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "ID": {
+    "name": "Idaho",
+    "senators": [
+      {
+        "name": "Mike Crapo",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Jim Risch",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "IL": {
+    "name": "Illinois",
+    "senators": [
+      {
+        "name": "Dick Durbin",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Tammy Duckworth",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "IN": {
+    "name": "Indiana",
+    "senators": [
+      {
+        "name": "Todd Young",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Jim Banks",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "IA": {
+    "name": "Iowa",
+    "senators": [
+      {
+        "name": "Chuck Grassley",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Joni Ernst",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "KS": {
+    "name": "Kansas",
+    "senators": [
+      {
+        "name": "Jerry Moran",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Roger Marshall",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "KY": {
+    "name": "Kentucky",
+    "senators": [
+      {
+        "name": "Mitch McConnell",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Rand Paul",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "LA": {
+    "name": "Louisiana",
+    "senators": [
+      {
+        "name": "Bill Cassidy",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "John Kennedy",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "ME": {
+    "name": "Maine",
+    "senators": [
+      {
+        "name": "Susan Collins",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Angus King",
+        "party": "Independent",
+        "caucus": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "split_rep_ind"
+  },
+  "MD": {
+    "name": "Maryland",
+    "senators": [
+      {
+        "name": "Chris Van Hollen",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Angela Alsobrooks",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "MA": {
+    "name": "Massachusetts",
+    "senators": [
+      {
+        "name": "Elizabeth Warren",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Ed Markey",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "MI": {
+    "name": "Michigan",
+    "senators": [
+      {
+        "name": "Gary Peters",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Elissa Slotkin",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "MN": {
+    "name": "Minnesota",
+    "senators": [
+      {
+        "name": "Amy Klobuchar",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Tina Smith",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "MS": {
+    "name": "Mississippi",
+    "senators": [
+      {
+        "name": "Roger Wicker",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Cindy Hyde-Smith",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "MO": {
+    "name": "Missouri",
+    "senators": [
+      {
+        "name": "Josh Hawley",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Eric Schmitt",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "MT": {
+    "name": "Montana",
+    "senators": [
+      {
+        "name": "Steve Daines",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Tim Sheehy",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "NE": {
+    "name": "Nebraska",
+    "senators": [
+      {
+        "name": "Deb Fischer",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Pete Ricketts",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "NV": {
+    "name": "Nevada",
+    "senators": [
+      {
+        "name": "Catherine Cortez Masto",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Jacky Rosen",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "NH": {
+    "name": "New Hampshire",
+    "senators": [
+      {
+        "name": "Jeanne Shaheen",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Maggie Hassan",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "NJ": {
+    "name": "New Jersey",
+    "senators": [
+      {
+        "name": "Cory Booker",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Andy Kim",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "NM": {
+    "name": "New Mexico",
+    "senators": [
+      {
+        "name": "Martin Heinrich",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Ben Ray Luj\u00e1n",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "NY": {
+    "name": "New York",
+    "senators": [
+      {
+        "name": "Chuck Schumer",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior",
+        "role": "Senate Minority Leader"
+      },
+      {
+        "name": "Kirsten Gillibrand",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "NC": {
+    "name": "North Carolina",
+    "senators": [
+      {
+        "name": "Thom Tillis",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Ted Budd",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "ND": {
+    "name": "North Dakota",
+    "senators": [
+      {
+        "name": "John Hoeven",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Kevin Cramer",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "OH": {
+    "name": "Ohio",
+    "senators": [
+      {
+        "name": "Bernie Moreno",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Jon Husted",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior",
+        "note": "Appointed to succeed JD Vance"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "OK": {
+    "name": "Oklahoma",
+    "senators": [
+      {
+        "name": "James Lankford",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Markwayne Mullin",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "OR": {
+    "name": "Oregon",
+    "senators": [
+      {
+        "name": "Ron Wyden",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Jeff Merkley",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "PA": {
+    "name": "Pennsylvania",
+    "senators": [
+      {
+        "name": "John Fetterman",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Dave McCormick",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "split_rep_dem"
+  },
+  "RI": {
+    "name": "Rhode Island",
+    "senators": [
+      {
+        "name": "Jack Reed",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Sheldon Whitehouse",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "SC": {
+    "name": "South Carolina",
+    "senators": [
+      {
+        "name": "Lindsey Graham",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Tim Scott",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "SD": {
+    "name": "South Dakota",
+    "senators": [
+      {
+        "name": "John Thune",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior",
+        "role": "Senate Majority Leader"
+      },
+      {
+        "name": "Mike Rounds",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "TN": {
+    "name": "Tennessee",
+    "senators": [
+      {
+        "name": "Marsha Blackburn",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Bill Hagerty",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "TX": {
+    "name": "Texas",
+    "senators": [
+      {
+        "name": "John Cornyn",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Ted Cruz",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "UT": {
+    "name": "Utah",
+    "senators": [
+      {
+        "name": "Mike Lee",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "John Curtis",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "VT": {
+    "name": "Vermont",
+    "senators": [
+      {
+        "name": "Bernie Sanders",
+        "party": "Independent",
+        "caucus": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Peter Welch",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "dem_and_ind"
+  },
+  "VA": {
+    "name": "Virginia",
+    "senators": [
+      {
+        "name": "Mark Warner",
+        "party": "Democrat",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Tim Kaine",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "WA": {
+    "name": "Washington",
+    "senators": [
+      {
+        "name": "Patty Murray",
+        "party": "Democrat",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Maria Cantwell",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_dem"
+  },
+  "WV": {
+    "name": "West Virginia",
+    "senators": [
+      {
+        "name": "Shelley Moore Capito",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Jim Justice",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  },
+  "WI": {
+    "name": "Wisconsin",
+    "senators": [
+      {
+        "name": "Ron Johnson",
+        "party": "Republican",
+        "class": 3,
+        "next_election": 2028,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Tammy Baldwin",
+        "party": "Democrat",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "split_rep_dem"
+  },
+  "WY": {
+    "name": "Wyoming",
+    "senators": [
+      {
+        "name": "John Barrasso",
+        "party": "Republican",
+        "class": 1,
+        "next_election": 2030,
+        "seniority": "Senior"
+      },
+      {
+        "name": "Cynthia Lummis",
+        "party": "Republican",
+        "class": 2,
+        "next_election": 2026,
+        "seniority": "Junior"
+      }
+    ],
+    "status": "both_rep"
+  }
+}

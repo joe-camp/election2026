@@ -1,0 +1,1571 @@
+/* ==========================================================================
+   US Senate 2026 Interactive Election Simulator & Map Styles
+   ========================================================================== */
+
+:root {
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Party Colors */
+  --color-gop: #ef4444;
+  --color-gop-dark: #dc2626;
+  --color-gop-deep: #991b1b;
+  --color-gop-glow: rgba(239, 68, 68, 0.45);
+  --color-gop-subtle: rgba(239, 68, 68, 0.14);
+
+  --color-dem: #3b82f6;
+  --color-dem-dark: #2563eb;
+  --color-dem-deep: #1e40af;
+  --color-dem-glow: rgba(59, 130, 246, 0.45);
+  --color-dem-subtle: rgba(59, 130, 246, 0.14);
+
+  --color-ind: #06b6d4;
+  --color-ind-dark: #0891b2;
+  --color-ind-glow: rgba(6, 182, 212, 0.45);
+  --color-ind-subtle: rgba(6, 182, 212, 0.14);
+
+  --color-tossup: #f59e0b;
+  --color-tossup-dark: #d97706;
+  --color-tossup-glow: rgba(245, 158, 11, 0.45);
+  --color-tossup-subtle: rgba(245, 158, 11, 0.15);
+
+  --color-flip: #10b981;
+  --color-flip-glow: rgba(16, 185, 129, 0.45);
+
+  /* Dark Theme (Default) */
+  --bg-primary: #070b14;
+  --bg-secondary: #0d1322;
+  --bg-card: rgba(18, 25, 43, 0.88);
+  --bg-card-hover: rgba(26, 36, 61, 0.96);
+  --bg-glass: rgba(13, 19, 34, 0.8);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-focus: rgba(255, 255, 255, 0.4);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-hover: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(0, 0, 0, 0.16);
+  --border-focus: rgba(0, 0, 0, 0.35);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+[data-theme="light"] html {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  background-image: 
+    radial-gradient(circle at 12% 8%, rgba(239, 68, 68, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 88% 12%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Layout */
+.app-container {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Header & Title Area */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-gop-dark), var(--color-dem-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  font-size: 1.4rem;
+}
+
+.brand-titles h1 {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.congress-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--radius-full);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fde68a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-tossup);
+  box-shadow: 0 0 10px var(--color-tossup);
+  animation: pulse-dot 1.8s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.theme-toggle, .btn-icon {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover, .btn-icon:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   November 2026 Senate Balance & Election Simulator Hero Widget
+   ========================================================================== */
+.senate-balance-hero {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 2rem 1.75rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hero-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-title-area h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero-title-area p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Live Majority Outcome Banner */
+.majority-outcome-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+}
+
+.majority-outcome-banner.banner-gop {
+  background: var(--color-gop-subtle);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.25);
+}
+
+.majority-outcome-banner.banner-dem {
+  background: var(--color-dem-subtle);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #93c5fd;
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
+}
+
+.majority-outcome-banner.banner-tie {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fde68a;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.25);
+}
+
+.majority-outcome-banner.banner-tossup {
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: var(--text-secondary);
+}
+
+/* Three-column Scoreboard (GOP, Threshold/Tossups, DEM) */
+.party-scoreboard {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.score-box {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-box:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.score-box.gop-box {
+  border-left: 5px solid var(--color-gop);
+}
+
+.score-box.dem-box {
+  border-right: 5px solid var(--color-dem);
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.score-number {
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.score-number.gop-color {
+  color: var(--color-gop);
+  text-shadow: 0 0 24px var(--color-gop-glow);
+}
+
+.score-number.dem-color {
+  color: var(--color-dem);
+  text-shadow: 0 0 24px var(--color-dem-glow);
+}
+
+.score-details .party-name {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-box.dem-box .score-details .party-name {
+  justify-content: flex-end;
+}
+
+.score-net-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.score-net-badge.badge-plus-gop {
+  background: var(--color-gop-subtle);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.score-net-badge.badge-plus-dem {
+  background: var(--color-dem-subtle);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.score-net-badge.badge-neutral {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+}
+
+.score-details .party-sub {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+/* Center Threshold & Tossup Box */
+.threshold-marker-badge {
+  text-align: center;
+  padding: 0 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.threshold-number {
+  font-size: 1.35rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-medium);
+}
+
+.threshold-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.tossups-count-badge {
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fde68a;
+  background: rgba(245, 158, 11, 0.15);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  display: none;
+}
+
+.tossups-count-badge.visible {
+  display: inline-block;
+}
+
+/* Segmented Balance Meter Bar */
+.meter-wrapper {
+  position: relative;
+  margin: 0.25rem 0;
+}
+
+.meter-track {
+  height: 32px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-full);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border-subtle);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.meter-segment {
+  height: 100%;
+  position: relative;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.meter-segment.gop-seg {
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+}
+
+.meter-segment.dem-seg {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+}
+
+.meter-segment.tossup-seg {
+  background: repeating-linear-gradient(45deg, #f59e0b, #f59e0b 8px, #d97706 8px, #d97706 16px);
+  color: #0f172a;
+  text-shadow: none;
+}
+
+.meter-needle-51 {
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  left: 51%;
+  width: 3px;
+  background: #ffffff;
+  box-shadow: 0 0 12px #ffffff;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.meter-needle-51::before {
+  content: '51 to Majority';
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+}
+
+/* Preset Scenario Quick-Simulator Bar */
+.scenario-presets-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.scenario-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-right: 0.25rem;
+}
+
+.preset-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.preset-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.preset-btn.active {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.5);
+  color: #fde68a;
+  font-weight: 700;
+}
+
+.preset-badge {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   Map Workspace & Controls
+   ========================================================================== */
+.map-workspace {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 1180px) {
+  .map-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+.map-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Map Header Toolbar */
+.map-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.view-mode-toggle {
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+}
+
+.view-mode-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.view-mode-btn.active {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.view-mode-badge {
+  font-size: 0.72rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-full);
+  background: rgba(245, 158, 11, 0.2);
+  color: #fde68a;
+}
+
+.map-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.click-mode-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+}
+
+.click-mode-pill label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.search-input-wrapper {
+  position: relative;
+  min-width: 220px;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem 0.5rem 2.2rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-input-wrapper input:focus {
+  border-color: var(--color-tossup);
+  box-shadow: 0 0 0 3px var(--color-tossup-subtle);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.2rem;
+  display: none;
+}
+
+.clear-search-btn.visible {
+  display: block;
+}
+
+/* Map SVG Wrapper */
+.svg-map-wrapper {
+  position: relative;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 0.5rem;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.us-map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* State SVG Paths Styling */
+.state-path {
+  cursor: pointer;
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1px;
+  stroke-linejoin: round;
+  transition: all 0.25s ease;
+  vector-effect: non-scaling-stroke;
+}
+
+.state-path:hover {
+  stroke: #ffffff !important;
+  stroke-width: 2.75px !important;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
+}
+
+.state-path.selected {
+  stroke: #f59e0b !important;
+  stroke-width: 3.5px !important;
+  filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.9));
+}
+
+/* 2026 Focus Mode: Contested States vs Non-contested States */
+body.mode-2026-focus .state-path.non-contested {
+  opacity: 0.32;
+  filter: grayscale(40%);
+  stroke: rgba(255, 255, 255, 0.15);
+}
+
+body.mode-2026-focus .state-path.contested {
+  stroke: rgba(255, 255, 255, 0.6);
+  stroke-width: 1.5px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+body.mode-2026-focus .state-path.contested:hover {
+  stroke: #ffffff !important;
+  stroke-width: 3px !important;
+}
+
+/* Flipped State Beacon Animation */
+.state-path.flipped-state {
+  animation: flip-beacon 2.5s infinite ease-in-out;
+}
+
+@keyframes flip-beacon {
+  0% { stroke: #10b981; stroke-width: 2px; }
+  50% { stroke: #34d399; stroke-width: 3.5px; filter: drop-shadow(0 0 14px rgba(16, 185, 129, 0.8)); }
+  100% { stroke: #10b981; stroke-width: 2px; }
+}
+
+.state-path.dimmed {
+  opacity: 0.15 !important;
+  filter: grayscale(90%) !important;
+}
+
+/* Map Legend */
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+  padding: 0.2rem 0.4rem;
+}
+
+.legend-swatch {
+  width: 20px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.legend-swatch.swatch-rep {
+  background: linear-gradient(135deg, var(--color-gop), var(--color-gop-dark));
+}
+
+.legend-swatch.swatch-dem {
+  background: linear-gradient(135deg, var(--color-dem), var(--color-dem-dark));
+}
+
+.legend-swatch.swatch-tossup {
+  background: repeating-linear-gradient(45deg, var(--color-tossup) 0px, var(--color-tossup) 4px, var(--color-tossup-dark) 4px, var(--color-tossup-dark) 8px);
+}
+
+.legend-swatch.swatch-flipped {
+  border: 2px solid #10b981;
+  background: linear-gradient(135deg, var(--color-dem-dark), var(--color-gop-dark));
+}
+
+.legend-swatch.swatch-safe-not-up {
+  background: rgba(148, 163, 184, 0.25);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+/* East Coast Quick Picker */
+.small-states-callout {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.small-states-callout span {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.small-state-chip {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.small-state-chip:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-1px);
+}
+
+.small-state-chip.chip-rep {
+  border-left: 3px solid var(--color-gop);
+}
+
+.small-state-chip.chip-dem {
+  border-left: 3px solid var(--color-dem);
+}
+
+.small-state-chip.chip-tossup {
+  border-left: 3px solid var(--color-tossup);
+}
+
+/* ==========================================================================
+   State Inspector Panel with 2026 Interactive Flip Controls
+   ========================================================================== */
+.state-inspector-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 1.25rem;
+}
+
+.inspector-placeholder {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+
+.inspector-placeholder svg {
+  margin-bottom: 1rem;
+  color: var(--color-tossup);
+  opacity: 0.8;
+}
+
+.inspector-placeholder h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.inspector-placeholder p {
+  font-size: 0.85rem;
+}
+
+.inspector-content {
+  display: none;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inspector-content.active {
+  display: flex;
+}
+
+.inspector-state-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.state-title-block h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.state-postal-badge {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.close-inspector-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-inspector-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+/* 2026 Race Interactive Flip Box */
+.contest-flip-box {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.contest-flip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contest-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-tossup);
+}
+
+.rating-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.rating-badge.rating-tossup {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fde68a;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.rating-badge.rating-lean-r, .rating-badge.rating-likely-r, .rating-badge.rating-solid-r {
+  background: var(--color-gop-subtle);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.rating-badge.rating-lean-d, .rating-badge.rating-likely-d, .rating-badge.rating-solid-d {
+  background: var(--color-dem-subtle);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Current Call / Flip Result Pill */
+.current-call-display {
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current-call-display.call-gop {
+  background: var(--color-gop-subtle);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+
+.current-call-display.call-dem {
+  background: var(--color-dem-subtle);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #93c5fd;
+}
+
+.current-call-display.call-tossup {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fde68a;
+}
+
+.flip-alert-tag {
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  display: inline-block;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  transform: none;
+}
+
+/* Three Flip Buttons Group */
+.flip-button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.btn-flip {
+  border: none;
+  padding: 0.6rem 0.4rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  color: #ffffff;
+}
+
+.btn-flip-gop {
+  background: #b91c1c;
+}
+
+.btn-flip-gop:hover, .btn-flip-gop.active {
+  background: #ef4444;
+  box-shadow: 0 0 12px var(--color-gop-glow);
+  transform: translateY(-1px);
+}
+
+.btn-flip-dem {
+  background: #1d4ed8;
+}
+
+.btn-flip-dem:hover, .btn-flip-dem.active {
+  background: #3b82f6;
+  box-shadow: 0 0 12px var(--color-dem-glow);
+  transform: translateY(-1px);
+}
+
+.btn-flip-tossup {
+  background: #b45309;
+}
+
+.btn-flip-tossup:hover, .btn-flip-tossup.active {
+  background: #f59e0b;
+  box-shadow: 0 0 12px var(--color-tossup-glow);
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+/* Quick One-Click Toggle Flip */
+.btn-quick-flip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.55rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-quick-flip:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--color-tossup);
+  color: #fde68a;
+}
+
+/* Resulting Delegation Preview */
+.resulting-delegation-card {
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.85rem;
+  color: var(--text-secondary);
+}
+
+.resulting-delegation-card strong {
+  color: var(--text-primary);
+}
+
+/* Non-contested State Notification */
+.safe-seat-notice {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.safe-seat-notice svg {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* Senator Detail Cards */
+.senators-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.senator-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.senator-card.rep-border {
+  border-left: 4px solid var(--color-gop);
+}
+
+.senator-card.dem-border {
+  border-left: 4px solid var(--color-dem);
+}
+
+.senator-card.ind-border {
+  border-left: 4px solid var(--color-ind);
+}
+
+.senator-card.up-2026-card {
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.senator-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.senator-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.senator-card.rep-border .senator-avatar {
+  background: var(--color-gop-subtle);
+  color: var(--color-gop);
+}
+
+.senator-card.dem-border .senator-avatar {
+  background: var(--color-dem-subtle);
+  color: var(--color-dem);
+}
+
+.senator-card.ind-border .senator-avatar {
+  background: var(--color-ind-subtle);
+  color: var(--color-ind);
+}
+
+.senator-info {
+  flex: 1;
+}
+
+.senator-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.senator-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+}
+
+.meta-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.meta-badge.badge-up2026 {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fde68a;
+  border-color: rgba(245, 158, 11, 0.4);
+  font-weight: 800;
+}
+
+.senator-bio {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  border-top: 1px dashed var(--border-subtle);
+  padding-top: 0.5rem;
+}
+
+/* ==========================================================================
+   November 2026 Battlegrounds Interactive Roster & Matrix
+   ========================================================================== */
+.battleground-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.battleground-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.battleground-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.battleground-filter-chips {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.bg-filter-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bg-filter-chip:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
+.bg-filter-chip.active {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+  font-weight: 700;
+}
+
+.battleground-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.bg-race-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.bg-race-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.bg-race-card.is-flipped {
+  border-color: #10b981;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.2);
+}
+
+.bg-race-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bg-race-state-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bg-race-incumbent-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-sm);
+}
+
+.bg-race-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.flip-segment-control {
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  gap: 0.2rem;
+}
+
+.segment-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.segment-btn:hover {
+  color: var(--text-primary);
+}
+
+.segment-btn.active.btn-seg-gop {
+  background: var(--color-gop-dark);
+  color: #ffffff;
+  box-shadow: 0 0 8px var(--color-gop-glow);
+}
+
+.segment-btn.active.btn-seg-dem {
+  background: var(--color-dem-dark);
+  color: #ffffff;
+  box-shadow: 0 0 8px var(--color-dem-glow);
+}
+
+.segment-btn.active.btn-seg-tossup {
+  background: var(--color-tossup);
+  color: #0f172a;
+  box-shadow: 0 0 8px var(--color-tossup-glow);
+}
+
+/* ==========================================================================
+   Floating Tooltip
+   ========================================================================== */
+.map-tooltip {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  background: rgba(13, 19, 34, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  box-shadow: var(--shadow-lg);
+  color: var(--text-primary);
+  opacity: 0;
+  transform: translate(-50%, -120%);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  min-width: 230px;
+}
+
+.map-tooltip.visible {
+  opacity: 1;
+  transform: translate(-50%, -105%);
+}
+
+.tooltip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.45rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.35rem;
+}
+
+.tooltip-state-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.tooltip-race-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #fde68a;
+  background: rgba(245, 158, 11, 0.2);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+}
+
+.tooltip-call-line {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0.3rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tooltip-hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+  border-top: 1px dashed var(--border-subtle);
+  padding-top: 0.3rem;
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.app-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0.85rem;
+    gap: 1.25rem;
+  }
+
+  .party-scoreboard {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .score-box.dem-box {
+    flex-direction: row;
+    text-align: left;
+    border-right: none;
+    border-left: 5px solid var(--color-dem);
+  }
+
+  .score-box.dem-box .score-details .party-name {
+    justify-content: flex-start;
+  }
+
+  .threshold-marker-badge {
+    display: none;
+  }
+
+  .brand-titles h1 {
+    font-size: 1.4rem;
+  }
+
+  .map-card {
+    padding: 1rem;
+  }
+}
