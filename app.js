@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Simulation State: Map of stateCode -> 'Republican' | 'Democrat' | 'Tossup'
   let simOutcomes = {};
-  let currentSelectedState = 'OH'; // Spotlight Ohio special election by default!
+  let currentSelectedState = null;
   let currentViewMode = '2026_focus'; // '2026_focus' | 'all_delegations'
   let instantFlipOnClick = false; // toggle for 1-click flip directly on map
   let currentBgFilter = 'all'; // 'all' | 'battlegrounds' | 'specials' | 'flipped' | 'tossups'
@@ -257,7 +257,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Re-render UI
     renderScoreboard();
     renderMapFills();
-    renderInspector(code);
+    if (currentSelectedState === code) {
+      renderInspector(code);
+    }
     renderBattlegroundGrid();
     updatePresetButtonsState();
   }
@@ -917,5 +919,4 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMapInteractions();
   renderBattlegroundGrid();
   updatePresetButtonsState();
-  selectState('OH'); // Spotlight marquee Ohio special election immediately!
 });

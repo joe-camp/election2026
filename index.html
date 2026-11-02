@@ -391,7 +391,7 @@
       <aside id="state-inspector-card" class="state-inspector-card" aria-label="Contest details and flip controls">
         
         <!-- Empty Prompt (Hidden when state selected) -->
-        <div id="inspector-placeholder" class="inspector-placeholder" style="display: none;">
+        <div id="inspector-placeholder" class="inspector-placeholder">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
             <path d="M12 6a1 1 0 0 0-1 1v5a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V7a1 1 0 0 0-1-1z"/>
@@ -401,12 +401,12 @@
         </div>
 
         <!-- Populated Inspector Content -->
-        <div id="inspector-content" class="inspector-content active">
+        <div id="inspector-content" class="inspector-content">
           
           <div class="inspector-state-header">
             <div class="state-title-block">
-              <h3 id="inspector-state-name">Ohio</h3>
-              <span id="inspector-postal" class="state-postal-badge">OH</span>
+              <h3 id="inspector-state-name"></h3>
+              <span id="inspector-postal" class="state-postal-badge"></span>
             </div>
             <button id="close-inspector-btn" class="close-inspector-btn" aria-label="Close state inspector">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
