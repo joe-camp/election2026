@@ -198,7 +198,7 @@ const CONTESTS_2026 = {
     incumbentParty: "Democrat",
     baselineParty: "Democrat",
     rating: "Solid D",
-    competitiveness: "Competitive",
+    competitiveness: "Safe Incumbent",
     priority: 12,
     otherSenator: { name: "Tim Kaine", party: "Democrat" },
     notes: "Inside Elections rates Virginia as Solid Democrat."
@@ -211,7 +211,7 @@ const CONTESTS_2026 = {
     incumbentParty: "Democrat",
     baselineParty: "Democrat",
     rating: "Solid D",
-    competitiveness: "Competitive",
+    competitiveness: "Safe Incumbent",
     priority: 13,
     otherSenator: { name: "Martin Heinrich", party: "Democrat" },
     notes: "Inside Elections rates New Mexico as Solid Democrat."
@@ -224,7 +224,7 @@ const CONTESTS_2026 = {
     incumbentParty: "Democrat",
     baselineParty: "Democrat",
     rating: "Solid D",
-    competitiveness: "Target Race",
+    competitiveness: "Safe Incumbent",
     priority: 14,
     otherSenator: { name: "Michael Bennet", party: "Democrat" },
     notes: "Inside Elections rates Colorado as Solid Democrat."

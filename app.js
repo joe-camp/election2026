@@ -308,6 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  let cachedTooltipWidth = 240;
+  let cachedTooltipHeight = 120;
+
   // Hover Tooltip
   function handleStateHover(e, stateCode) {
     const hasRace = CONTESTS_2026.hasOwnProperty(stateCode);
@@ -322,6 +325,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <p style="font-size: 0.8rem; color: var(--text-muted);">No Senate representation.</p>
       `;
       tooltip.classList.add('visible');
+      cachedTooltipWidth = tooltip.offsetWidth || 240;
+      cachedTooltipHeight = tooltip.offsetHeight || 100;
       handleStateMove(e);
       return;
     }
@@ -384,6 +389,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     tooltip.classList.add('visible');
+    cachedTooltipWidth = tooltip.offsetWidth || 240;
+    cachedTooltipHeight = tooltip.offsetHeight || 120;
     handleStateMove(e);
   }
 
@@ -392,15 +399,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let x = e.clientX;
     let y = e.clientY - padding;
 
-    const tooltipRect = tooltip.getBoundingClientRect();
-    if (x - tooltipRect.width / 2 < 10) {
-      x = tooltipRect.width / 2 + 10;
-    } else if (x + tooltipRect.width / 2 > window.innerWidth - 10) {
-      x = window.innerWidth - tooltipRect.width / 2 - 10;
+    if (x - cachedTooltipWidth / 2 < 10) {
+      x = cachedTooltipWidth / 2 + 10;
+    } else if (x + cachedTooltipWidth / 2 > window.innerWidth - 10) {
+      x = window.innerWidth - cachedTooltipWidth / 2 - 10;
     }
 
-    if (y - tooltipRect.height < 10) {
-      y = e.clientY + tooltipRect.height + padding;
+    if (y - cachedTooltipHeight < 10) {
+      y = e.clientY + cachedTooltipHeight + padding;
     }
 
     tooltip.style.left = `${x}px`;
@@ -624,7 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Filtering check
       let matchesFilter = true;
       if (currentBgFilter === 'battlegrounds') {
-        matchesFilter = contest.priority <= 14; // Top 14 battlegrounds (includes OH, GA, ME, NC, MI, FL, TX, IA, etc.)
+        matchesFilter = contest.priority <= 11; // Top 11 battlegrounds (OH, GA, ME, NC, MI, FL, TX, IA, NH, MN, AK)
       } else if (currentBgFilter === 'specials') {
         matchesFilter = !!contest.isSpecialElection; // Ohio & Florida
       } else if (currentBgFilter === 'flipped') {

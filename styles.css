@@ -35,9 +35,9 @@
   /* Dark Theme (Default) */
   --bg-primary: #070b14;
   --bg-secondary: #0d1322;
-  --bg-card: rgba(18, 25, 43, 0.88);
-  --bg-card-hover: rgba(26, 36, 61, 0.96);
-  --bg-glass: rgba(13, 19, 34, 0.8);
+  --bg-card: #111829;
+  --bg-card-hover: #19223a;
+  --bg-glass: #0d1322;
 
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-medium: rgba(255, 255, 255, 0.16);
@@ -61,9 +61,9 @@
 [data-theme="light"] {
   --bg-primary: #f1f5f9;
   --bg-secondary: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.92);
-  --bg-card-hover: #ffffff;
-  --bg-glass: rgba(255, 255, 255, 0.85);
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --bg-glass: #ffffff;
 
   --border-subtle: rgba(0, 0, 0, 0.08);
   --border-medium: rgba(0, 0, 0, 0.16);
@@ -105,7 +105,6 @@ body {
     radial-gradient(circle at 12% 8%, rgba(239, 68, 68, 0.08) 0%, transparent 40%),
     radial-gradient(circle at 88% 12%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
     radial-gradient(circle at 50% 85%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
-  background-attachment: fixed;
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }
@@ -208,8 +207,7 @@ body {
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .theme-toggle:hover, .btn-icon:hover {
@@ -223,8 +221,6 @@ body {
    ========================================================================== */
 .senate-balance-hero {
   background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 1.5rem 2rem 1.75rem;
@@ -585,8 +581,6 @@ body {
 
 .map-card {
   background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
@@ -743,33 +737,29 @@ body {
   stroke: rgba(255, 255, 255, 0.35);
   stroke-width: 1px;
   stroke-linejoin: round;
-  transition: all 0.25s ease;
+  transition: stroke 0.2s ease, stroke-width 0.2s ease, opacity 0.2s ease;
   vector-effect: non-scaling-stroke;
 }
 
 .state-path:hover {
   stroke: #ffffff !important;
   stroke-width: 2.75px !important;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
 }
 
 .state-path.selected {
   stroke: #f59e0b !important;
   stroke-width: 3.5px !important;
-  filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.9));
 }
 
 /* 2026 Focus Mode: Contested States vs Non-contested States */
 body.mode-2026-focus .state-path.non-contested {
   opacity: 0.32;
-  filter: grayscale(40%);
   stroke: rgba(255, 255, 255, 0.15);
 }
 
 body.mode-2026-focus .state-path.contested {
-  stroke: rgba(255, 255, 255, 0.6);
+  stroke: rgba(255, 255, 255, 0.65);
   stroke-width: 1.5px;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
 body.mode-2026-focus .state-path.contested:hover {
@@ -777,20 +767,15 @@ body.mode-2026-focus .state-path.contested:hover {
   stroke-width: 3px !important;
 }
 
-/* Flipped State Beacon Animation */
-.state-path.flipped-state {
-  animation: flip-beacon 2.5s infinite ease-in-out;
-}
-
-@keyframes flip-beacon {
-  0% { stroke: #10b981; stroke-width: 2px; }
-  50% { stroke: #34d399; stroke-width: 3.5px; filter: drop-shadow(0 0 14px rgba(16, 185, 129, 0.8)); }
-  100% { stroke: #10b981; stroke-width: 2px; }
+/* Flipped State Highlight */
+.state-path.flipped-state,
+body.mode-2026-focus .state-path.contested.flipped-state {
+  stroke: #10b981;
+  stroke-width: 2.5px;
 }
 
 .state-path.dimmed {
   opacity: 0.15 !important;
-  filter: grayscale(90%) !important;
 }
 
 /* Map Legend */
@@ -897,8 +882,6 @@ body.mode-2026-focus .state-path.contested:hover {
    ========================================================================== */
 .state-inspector-card {
   background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 1.5rem;
@@ -1355,14 +1338,13 @@ body.mode-2026-focus .state-path.contested:hover {
 
 .bg-race-card {
   background: var(--bg-card);
-  backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 1.1rem;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   position: relative;
 }
 
@@ -1460,9 +1442,7 @@ body.mode-2026-focus .state-path.contested:hover {
   position: fixed;
   z-index: 1000;
   pointer-events: none;
-  background: rgba(13, 19, 34, 0.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(13, 19, 34, 0.96);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
@@ -1472,6 +1452,7 @@ body.mode-2026-focus .state-path.contested:hover {
   transform: translate(-50%, -120%);
   transition: opacity 0.15s ease, transform 0.15s ease;
   min-width: 230px;
+  will-change: transform, opacity;
 }
 
 .map-tooltip.visible {
